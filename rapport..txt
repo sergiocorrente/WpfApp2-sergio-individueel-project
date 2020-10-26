@@ -1,0 +1,4 @@
+Verder gewerkt aan het aanmaken van gebruikers encriptie, Categorieen
+en de layout.    
+
+ 

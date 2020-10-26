@@ -1,0 +1,158 @@
+﻿<UserControl x:Class="WpfApp2_sergio_individueel_project.Views.Beheer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApp2_sergio_individueel_project.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+   
+    <Grid>
+        <StackPanel Background="#31363d" >
+            <StackPanel>
+                <TabControl Background="#31363d" Foreground="White" FontSize="18" x:Name="TabDatabeheer" SelectionChanged="TabDatabeheer_SelectionChanged" >
+                    <TabItem  Header="Personeel" x:Name="tabPersoneel" >
+                        <StackPanel  Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center" >
+                            <Label Content="Personeel's management" Foreground="White" FontSize="25" HorizontalAlignment="Center"/>
+                            <Separator></Separator>
+                            <Grid HorizontalAlignment="Center" Width="200" Height="25" Margin="10">
+                                <TextBox   Background="#545d6a" Foreground="White" FontSize="18" x:Name="txtvoornaam" VerticalAlignment="Center"></TextBox>
+                                <TextBlock   Background="#545d6a" Foreground="White" FontSize="18" Name="txtvoornaamWoord" VerticalAlignment="Center" Text="Voornaam"></TextBlock>
+                                
+                            </Grid>
+                            <Grid HorizontalAlignment="Center" Width="200" Height="25" Margin="10">
+                                <TextBox  Background="#545d6a" Foreground="White" FontSize="18"  x:Name="txtAchternaam" VerticalAlignment="Center"></TextBox>
+                                <TextBlock  Background="#545d6a" Foreground="White" FontSize="18" Name="txtAchternaamWoord" VerticalAlignment="Center" Text="Achternaam"></TextBlock>
+
+                            </Grid>
+                            <Grid HorizontalAlignment="Center" Width="200" Height="25" Margin="10">
+                                <TextBox  Background="#545d6a" Foreground="White" FontSize="18" x:Name="txtGebruikernaam" VerticalAlignment="Center"></TextBox>
+                                <TextBlock  Background="#545d6a" Foreground="White" FontSize="18"  Name="txtGebruikernaamWoord" VerticalAlignment="Center" Text="GebruikerNaam"></TextBlock>
+                            </Grid>
+                            <Grid HorizontalAlignment="Center" Width="200" Height="25" Margin="10">
+                                <TextBox  Background="#545d6a" Foreground="White" FontSize="18" x:Name="txtPasword" VerticalAlignment="Center"></TextBox>
+                                <TextBlock  Background="#545d6a" Foreground="White" FontSize="18" Name="txtWachtwoordWoord" VerticalAlignment="Center" Text="Wachtwoord"></TextBlock>
+                                
+                            </Grid>
+                            <WrapPanel Margin="2" HorizontalAlignment="Center">
+                                <ComboBox  FontSize="18" x:Name="cbRoleID" Margin="10" SelectionChanged="cbRoleID_SelectionChanged"/>
+                                <ToggleButton Margin="2" Background="#545d6a" Foreground="White" FontSize="18" x:Name="tbPersoneel" Content="BewerVerwijderen" Checked="tbPersoneel_Checked" IsChecked="False"/>
+                                <ComboBox Margin="5" FontSize="18" x:Name="cbPersoneelID" SelectionChanged="cbPersoneelID_SelectionChanged" IsEnabled="False"/>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <Button  Background="#545d6a" Foreground="White" FontSize="18" x:Name="btnToevoegen" Margin="5" Click="btnToevoegen_Click">Toevogen</Button>
+                                <Button  Background="#545d6a" Foreground="White" FontSize="18" x:Name="btnBewerken" Margin="5" Click="btnBewerken_Click" IsEnabled="True">Bewerken</Button>
+                                <Button  Background="#545d6a" Foreground="White" FontSize="18" x:Name="btnVerwijderen" Margin="5" Click="btnVerwijderen_Click">Verwijderen</Button>
+
+                            </WrapPanel>
+                            
+                        </StackPanel>
+                        
+                    </TabItem>
+                    <TabItem Header="Categorie" x:Name="tabCategorie"  VerticalAlignment="Top">
+                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20">
+                            <Label Content="Beheer van categorieën" Foreground="White" FontSize="25" HorizontalAlignment="Center"/>
+                            <Separator></Separator>
+                            <TextBlock Background="#31363d" Foreground="White" FontSize="18" Margin="5"  >Toetevoegen / editeren</TextBlock>
+                            <TextBox Background="#545d6a" Foreground="White" FontSize="18" Margin="5"  x:Name="txtCategorieToevoegen">
+                            </TextBox>
+                            <Button Margin="5" Background="#545d6a" Foreground="White" FontSize="18" x:Name="btnAddCategorie"  Content="Toevoegen" Click="btnAddCategorie_Click">
+                            </Button>
+                            <TextBlock Margin="5" Background="#31363d" Foreground="White" FontSize="18" HorizontalAlignment="Center">Verwijderen</TextBlock>
+                            <ComboBox Margin="5" FontSize="18" x:Name="cbCategorie"></ComboBox>
+                            <Button Margin="5" Background="#545d6a" Foreground="White" FontSize="18" x:Name="btnEditCategorie"  Content="Bewerken" Click="btnEditCategorie_Click"></Button>
+                            <Button Margin="5" Background="#545d6a" Foreground="White" FontSize="18" x:Name="btnDeleteCategorie" Content="Verwijderen" Click="btnDeleteCategorie_Click"></Button>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="Producten" x:Name="tabProducten">
+                        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Margin="20">
+                            <Label Content="Beheer van producten" Foreground="White" FontSize="25" HorizontalAlignment="Center"/>
+                            <Separator></Separator>
+                            <TextBox Margin="5" Background="#545d6a" Foreground="White" FontSize="18" x:Name="txtNaamEditProducten">Naam</TextBox>
+                            <WrapPanel>
+                                <TextBox Margin="5" Background="#545d6a" Foreground="White" FontSize="18" x:Name="txtMargeEditProducten" Text="Marge"/>
+                                <TextBlock Margin="5" Background="#31363d" Foreground="White" FontSize="18">%</TextBlock>
+                            </WrapPanel>
+                            <TextBox Margin="5" Background="#545d6a" Foreground="White" FontSize="18"  x:Name="txtEenheidEditProducten" Text="Eenheid" ></TextBox>
+                            <WrapPanel>
+                                <TextBox Margin="5" Background="#545d6a" Foreground="White" FontSize="18" x:Name="txtBTWEditProducten" Text="BTW"/>
+                                <TextBlock Margin="5" Background="#31363d" Foreground="White" FontSize="18" >%</TextBlock>
+                            </WrapPanel>
+                            <StackPanel>
+                                <ComboBox Margin="5" x:Name="cbLeverancierEditProducten"></ComboBox>
+                                <ComboBox Margin="5" x:Name="cbCategorieEditProducten"></ComboBox>
+                                </StackPanel>
+                            <WrapPanel>
+                                <TextBlock Margin="5" Background="#31363d" Foreground="White" FontSize="18" HorizontalAlignment="Center"  VerticalAlignment="Center">Aantal</TextBlock>
+                                <StackPanel>
+                                    <StackPanel/>
+                                    <TextBox Margin="5"  Background="#545d6a" Foreground="White" FontSize="18" x:Name="nudAantalOpVooraadProducten" Text="0" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" Width="auto" MaxWidth="100"/>
+                                </StackPanel>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <ToggleButton Margin="5" Background="#545d6a" Foreground="White" FontSize="18" x:Name="tbEditProducten" Content="edit/delete" Checked="tbEditProducten_Checked"></ToggleButton>
+                                <ComboBox Margin="5" x:Name="cbEditProducten" IsEnabled="False"></ComboBox>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <Button Margin="5" Background="#545d6a" Foreground="White" FontSize="18" x:Name="btnToevoegenProducten" Click="btnToevoegenProducten_Click">Toevoegen</Button>
+                                <Button Margin="5" Background="#545d6a" Foreground="White" FontSize="18" x:Name="btnEditProducten">Edit</Button>
+                                <Button Margin="5" Background="#545d6a" Foreground="White" FontSize="18" x:Name="btnDeletedProducten">Delete</Button>
+                            </WrapPanel>
+                       </StackPanel>
+                    </TabItem>
+                    <TabItem Header="Leverencier" x:Name="tabLeverencier">
+                        
+                        <StackPanel Margin="20" VerticalAlignment="Center" HorizontalAlignment="Center" >
+                            <Label Content="Leveringen beheer" Foreground="White" FontSize="25" HorizontalAlignment="Center"/>
+                            <Separator></Separator>
+                            <WrapPanel>
+
+                                <TextBox Margin="5" Background="#545d6a" Foreground="White" FontSize="18" x:Name="txtContactpersoonEditLeverancier">Contactpersoon</TextBox>
+                                <TextBox Margin="5" Background="#545d6a" Foreground="White" FontSize="18" x:Name="txtTelefoonnummerEditLeverancier">Telefoon nummer</TextBox>
+                                <TextBox Margin="5" Background="#545d6a" Foreground="White" FontSize="18" x:Name="txtEmailadresEditLeverancier">e-mail</TextBox>
+                            </WrapPanel>
+                            <StackPanel Margin="10" HorizontalAlignment="Right">
+                                <WrapPanel>
+                                    <TextBox Background="#545d6a" Foreground="White" FontSize="18" Margin="5" x:Name="txtStraatnaamEditLeverancier">Straatnaam</TextBox>
+                                    <TextBox Background="#545d6a" Foreground="White" FontSize="18" Margin="5" x:Name="txtHuisnummerEditLeverancier">Huisnummer</TextBox>
+                                    <TextBox Background="#545d6a" Foreground="White" FontSize="18" Margin="5" x:Name="txtBusEditLeverancier">Bus</TextBox>
+                                </WrapPanel>
+                                <StackPanel HorizontalAlignment="Left">
+                                    <WrapPanel>
+                                        <TextBox Background="#545d6a" Foreground="White" FontSize="18" Margin="5" x:Name="txtPostcodeEditLeverancier">Postcode</TextBox>
+                                        <TextBox Background="#545d6a" Foreground="White" FontSize="18" Margin="5" x:Name="txtGemeenteEditLeverancier">Gemeente</TextBox>
+                                    </WrapPanel>
+                                </StackPanel>
+                                <ComboBox Margin="5" x:Name="cbEditLeverancier"></ComboBox>
+                                <ToggleButton Background="#545d6a" Foreground="White" FontSize="18" x:Name="tbEditLeverancier" Content="Bewerken/Verwijderen"></ToggleButton>
+                                
+                                <StackPanel Margin="10">
+                                    <WrapPanel>
+                                        <Button Background="#545d6a" Foreground="White" FontSize="18" Margin="5" x:Name="btnToevoegenLeverancier" >Toevoegen</Button>
+                                        <Button Background="#545d6a" Foreground="White" FontSize="18"  Margin="5" x:Name="btnEditLeverancier"  >Bewerken</Button>
+                                        <Button Background="#545d6a" Foreground="White" FontSize="18" Margin="5" x:Name="btnDeleteLeverancier">Verwijderen</Button>
+                                    </WrapPanel>
+
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+
+                    </TabItem>
+                    <TabItem Header="Klanten" x:Name="tabKlanten">
+                        <StackPanel Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center" >
+
+                        </StackPanel>
+                   </TabItem>
+                    
+                    
+
+                    <!-- <TabItem Header="Back" x:Name="tabBack">
+
+                    </TabItem>-->
+                </TabControl>
+
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+
+</UserControl>
